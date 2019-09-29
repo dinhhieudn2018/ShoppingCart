@@ -12,10 +12,10 @@ class ProductDetailController extends Controller
     public function show($id, $slug){
     	
         $product = Product::find($id);
-        $related = Product::where('idProductType',$product->idProductType)->take(5)->get();
+        $related = Product::where('idProductType',$product->idProductType)->take(3)->get();
         $topsales = Product::where('idProductType',$product->idProductType)
                             ->orderByDesc('sales')
-                            ->take(5)
+                            ->take(3)
                             ->get();
         $configurations = json_decode($product->configuration,true);
         

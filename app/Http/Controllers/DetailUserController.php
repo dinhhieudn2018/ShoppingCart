@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Order;
 use Hash;
 class DetailUserController extends Controller
 {
     public function show($id){
-    	$user = User::find($id);
+    	$user = User::with('Order')->find($id);
     	return view('client.pages.customer.profile',compact('user'));
     }
     public function getEdit($id){

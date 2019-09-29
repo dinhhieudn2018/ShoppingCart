@@ -8,8 +8,23 @@
 	.fb-comments, .fb-comments span, .fb-comments span iframe{
             width:100% !important;
             display:inline-block !important;
-            max-width:100% !important
+            max-width:100% !important;
         }
+    /*body {
+	  font: 14px verdana;
+	}*/
+
+	#description {
+	  overflow: hidden;
+	  height: 15em;
+	  /*line-height: 5em;*/
+	  width: auto;
+	}
+	#readmore, #readless {
+		cursor: pointer; 
+		color: #288ad6;
+		text-align: center;
+	}
 </style>
 	<div class="page-head_agile_info_w3l"></div>
 	<div class="services-breadcrumb">
@@ -87,9 +102,16 @@
 	</div>
 	<div class="row">
 		<div class="col-md-8">
+			<h2 class="sidebar-title" id="config" >Mô tả sản phẩm</h2>
+			<br>
+			{{-- <h5>Đặc điểm nổi bật của sản phẩm</h5> --}}
 			<div id="description" style="word-wrap: break-word;">
 				{!! $product->description !!}
+				<br>
+				<div id="readless"><a>Thu gọn</a></div>
 			</div>
+			<br>
+			<div id="readmore"><a>Đọc thêm</a></div>
 			<div id="fb-root"></div>
 			<div class="fb-comments" data-href="{{ Request::url() }}" data-width="100%" data-numposts="5"></div>
 			
@@ -124,4 +146,18 @@
             </div>
 		</div>
 	</div>
+@endsection
+@section('script')
+<script type="text/javascript">
+	//tạo nút đọc thêm và thu gọn với js
+	document.querySelector('#readmore').addEventListener('click', function() {
+		document.querySelector('#description').style.height= 'auto';
+		this.style.display= 'none';
+	});
+	document.querySelector('#readless').addEventListener('click', function() {
+		document.querySelector('#description').style.height= '15em';
+		document.querySelector('#readmore').style.display= 'block';
+		this.style.display= 'none';
+	});
+</script>
 @endsection
