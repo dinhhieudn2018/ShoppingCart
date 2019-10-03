@@ -13,6 +13,7 @@ use Auth;
 use App\Http\Requests\StoreCartRequest;
 use Mail;
 use App\Mail\ShoppingMail;
+use App\Events\CustomerOrder;
 class CartController extends Controller
 {
     // public function __construct(){
@@ -68,6 +69,9 @@ class CartController extends Controller
             $orderDetails[$key] = OrderDetail::create( $orderDetail);
         }
         //Mail::to($order->email)->send(new ShoppingMail($order, $orderDetails));
+        // kích hoạt event
+        event(new CustomerOrder($order));
+        
         Cart::destroy();
         return redirect('/')->with('thongbao','Đã đặt hàng thành công');
     }
@@ -80,7 +84,7 @@ class CartController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**

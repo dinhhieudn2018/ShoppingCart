@@ -125,7 +125,7 @@
 										<div class="information-wrapper">
 											<div class="first-row">
 												<div class="controls form-group">
-													<input class="billing-address-name form-control" type="text" name="name" placeholder="Họ và tên">
+													<input class="billing-address-name form-control" type="text" name="name" placeholder="Họ và tên" value="{{Auth::user()->name }}">
 													@if($errors->has('name'))
 								                        <div class="alert alert-danger">{{ $errors->first('name') }}</div>
 								                    @endif
@@ -133,7 +133,7 @@
 												<div class="w3_agileits_card_number_grids">
 													<div class="w3_agileits_card_number_grid_left form-group">
 														<div class="controls">
-															<input type="text" class="form-control" placeholder="Số điện thoại" name="phone">
+															<input type="text" class="form-control" placeholder="Số điện thoại" name="phone" value="{{ Auth::user()->phone }}">
 															@if($errors->has('name'))
 										                        <div class="alert alert-danger">{{ $errors->first('phone') }}</div>
 										                    @endif
@@ -141,7 +141,7 @@
 													</div>
 													<div class="w3_agileits_card_number_grid_right form-group">
 														<div class="controls">
-															<input type="text" class="form-control" placeholder="Địa chỉ" name="address">
+															<input type="text" class="form-control" placeholder="Địa chỉ" name="address" value="{{ Auth::user()->address }}">
 															@if($errors->has('name'))
 										                        <div class="alert alert-danger">{{ $errors->first('address') }}</div>
 										                    @endif

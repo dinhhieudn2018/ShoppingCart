@@ -158,6 +158,7 @@ class UserController extends Controller
     }
 
     public function registerClient(Request $request){
+        //dd($request);
         $validate = $request->validate(
             [
                 'name' => 'required|min:2|max:20',

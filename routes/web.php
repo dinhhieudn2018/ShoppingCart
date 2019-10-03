@@ -10,6 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
+
 //Admin
 Route::post('admin-login','AdminController@loginAdmin')->name('admin.login');
 //Route::get('admin/login','AdminController@getLogin')->name('login.admin');
@@ -34,7 +36,7 @@ Route::get('google/callback/{social}', 'GoogleController@handleProviderCallback'
 Route::get('client-login','UserController@getClientLogin')->name('client-login');
 Route::post('client-login', 'UserController@loginClient')->name('client-login');
 Route::get('client-register','UserController@getRegister')->name('client-register');
-Route::post('register','UserController@registerClient')->name('register');
+Route::post('register','UserController@registerClient')->name('post.register');
 
 Route::get('/', 'HomeController@index');
 
@@ -52,7 +54,6 @@ Route::get('edit-password','DetailUserController@getEditPassword')->name('edit-p
 Route::post('put-password/{id}','DetailUserController@putPassword')->name('put-password');
 Route::get('product-add','ProductController@getConfiguration');
 
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 

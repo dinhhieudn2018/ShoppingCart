@@ -121,7 +121,7 @@
                     @endforeach
                 @else
                     <tr class="text-center">
-                        <td colspan="4">Bạn chưa mua sản phẩm nào</td>
+                        <td colspan="6">Bạn chưa mua sản phẩm nào</td>
                     </tr>
                     @endif
             </table>

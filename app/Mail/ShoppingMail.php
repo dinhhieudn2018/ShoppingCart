@@ -30,6 +30,6 @@ class ShoppingMail extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.shopping');
+        return $this->view('mail.mail');
     }
 }

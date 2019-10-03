@@ -13,7 +13,7 @@
     </div>
     <br><br>
 	<div class="col-md-6 col-md-offset-3" style="margin: auto;">
-		<form action="{{ route('register') }}" method="post">
+		<form action="/register" method="post">
 			@csrf
 			<div class="form-group">
 				<label class="col-form-label">Họ và tên</label>
